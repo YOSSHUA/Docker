@@ -1,5 +1,5 @@
 # Docker reference
-To use this reference you will need to download Docker Desktop from this [link](https://docs.docker.com/desktop/windows/install/).
+To use this reference you will need to download Docker Desktop from this [link](https://www.docker.com/products/docker-desktop).
 
 # Terminology
 
