@@ -1,4 +1,5 @@
 # Docker reference
+To use this reference you will need to download Docker Desktop.
 
 # Terminology
 
