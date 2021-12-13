@@ -45,7 +45,7 @@ Each instruction creates one layer:
 ### Building the container image
 <br>
 
-We will use the following command in the terminal:
+We will use the following command in the terminal to build the image with the Dockerfile:
 ```
 docker build -t image_name .
 ```
