@@ -1,5 +1,4 @@
 # Docker reference
-To use this reference you will need to download Docker Desktop from this [link](https://www.docker.com/products/docker-desktop).
 
 # Terminology
 
@@ -56,9 +55,11 @@ docker build -t image_name .
 <br>
 
 ### Run a container given certain image container
+
 <br>
+
 ```
-docker run -d -p <host port>:<container port> docker/image-name
+docker run -d -p <host port>:<container port> image-name
 ```
 
 * `-d` run the container in detached mode(in the background)
