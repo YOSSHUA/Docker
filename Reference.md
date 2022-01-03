@@ -193,10 +193,74 @@ To create a network type the following command ```docker network create <network
 
 To connect a container to a network during start type ```docker run -d --network <network-name> --network-alias <container-alias-in-network> <image-name>```
 
+
+# MySQL in Docker containers
+
+To start a MySQL container and attach it to a network in such a way that other containers are able to connect to it we have to type the following command:
+
+```docker run -d --network  <network-name> --network-alias <container-alias-in-network> -v <volume-name>:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=<mysql-password> -e MYSQL_DATABASE=<db-name> <mysql:version>```
+
+Possible environment variables to specify MySQL connection settings. They are the following:
+
+- ```MYSQL_HOST``` - the hostname for the running MySQL server
+- ```MYSQL_USER``` - the username to use for the connection
+- ```MYSQL_PASSWORD``` - the password to use for the connection
+- ```MYSQL_DB``` - the database to use once connected
+
+You should avoid typing the information directly. Instead use env var with a ```_FILE``` suffix to point to a file containing the variable. As an example, setting the MYSQL_PASSWORD_FILE var will cause the app to use the contents of the referenced file as the connection password.
+
+
+# Docker Compose
+It is a tool that was developed to help define and share multi-container applications. With Docker Compose, we can create a YAML file to define the services and with a single command run or tear it all down.
+
+<br>
+
+### Run an application with Docker Compose
+
+Once you created the ```docker-compose.yaml``` file in the root of your repository you have to type ```docker-compose up -d``` and now all the app should be running.
+
+<details><summary> Docker composer file example. </summary>
+<p>
+
+```yaml
+version: "3.7"
+
+services:
+  app:
+    image: node:12-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+volumes:
+  todo-mysql-data:
+
+```
+
+</p>
+</details>
+
+<br>
+
 # References:
 
 Getting started [tutorial](https://github.com/docker/getting-started).
 
 Docker [documentation](https://www.docker.com/resources/what-container).
-
 
