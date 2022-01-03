@@ -151,6 +151,15 @@ To acces files in volume within the container you should run the following comma
 
 <br>
 
+### See container logs
+
+<br>
+
+To see the logs of a given container, run the following command: 
+
+```docker logs <container-id>```
+
+<br>
 
 
 ## Bind mounts
