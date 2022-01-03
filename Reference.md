@@ -154,11 +154,35 @@ To acces files in volume within the container you should run the following comma
 
 
 ## Bind mounts
-<br>
-
-File or folder stored anywhere on the container host filesystem, the bind mount is mounted into a running container. 
 
 <br>
+
+File or folder stored anywhere on the container host filesystem, the bind mount is mounted into a running container. We can use a bind mount to mount our source code into the container to let it see code changes, respond, and let us see the changes right away.
+To mount it you should type ```docker run -dp <host port>:<container port> -v <path-in-host>:<path-in-container> <image-name>```
+
+-  `-v` flag to specify a volume mount. We will mount the volume in `<path-in-container>`, which will capture all files created at the path.
+
+
+<br>
+
+Comparison between Named volumes and Bind mounts
+
+![](volumeTypes.png)
+
+
+# Networking 
+
+By default containers run in isolation and don't know anything about other processes or containers on the same machine. The only rule is 
+
+**If two containers are on the same network, they can talk each other. If they aren't, they can't.**
+
+### Create network
+
+To create a network type the following command ```docker network create <network-name>``` 
+
+### Connect container to a network
+
+To connect a container to a network during start type ```docker run -d --network <network-name> --network-alias <container-alias-in-network> <image-name>```
 
 # References:
 
