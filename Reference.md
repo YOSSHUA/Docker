@@ -176,7 +176,7 @@ To mount it you should type ```docker run -dp <host port>:<container port> -v <p
 
 Comparison between Named volumes and Bind mounts
 
-![](volumeTypes.png)
+![Volumes](https://github.com/YOSSHUA/Docker/blob/main/Images/volumeTypes.PNG?raw=true)
 
 
 # Networking 
@@ -185,11 +185,19 @@ By default containers run in isolation and don't know anything about other proce
 
 **If two containers are on the same network, they can talk each other. If they aren't, they can't.**
 
+<br>
+
 ### Create network
+
+<br>
 
 To create a network type the following command ```docker network create <network-name>``` 
 
+<br>
+
 ### Connect container to a network
+
+<br>
 
 To connect a container to a network during start type ```docker run -d --network <network-name> --network-alias <container-alias-in-network> <image-name>```
 
@@ -211,15 +219,18 @@ You should avoid typing the information directly. Instead use env var with a ```
 
 
 # Docker Compose
+
 It is a tool that was developed to help define and share multi-container applications. With Docker Compose, we can create a YAML file to define the services and with a single command run or tear it all down.
 
 <br>
 
 ### Run an application with Docker Compose
 
+<br>
+
 Once you created the ```docker-compose.yaml``` file in the root of your repository you have to type ```docker-compose up -d``` and now all the app should be running.
 
-<details><summary> Docker composer file example. </summary>
+<details><summary> Docker compose file example. </summary>
 <p>
 
 ```yaml
@@ -255,6 +266,25 @@ volumes:
 
 </p>
 </details>
+
+
+If you have a look in Docker Dashboard you'll notice there is a project.
+By default the project name is the name of the directory of the docker-compose.yaml file, and Docker Compose use the project to group the containers defined there.
+
+The names of each container are also a little more descriptive, as they follow the pattern of ```<project-name>_<service-name>_<replica-number>```.
+
+![Composer](https://github.com/YOSSHUA/Docker/blob/main/Images/composer.PNG?raw=true)
+
+By default, Docker Compose creates a network for the containers and also creates volumes if they don't exist.
+
+<br>
+
+### Stop an application from Docker Compose
+
+<br>
+
+You just have to run the commad ```docker-compose down```. The containers will stop and the network will be removed. By default, named volumes in your compose file are NOT removed. If you want to remove the volumes, you will need to add the --volumes flag.
+
 
 <br>
 
