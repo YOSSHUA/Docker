@@ -1,8 +1,5 @@
 # Docker reference
 
-# Terminology
-
-
 ## Container
 
 <br>
