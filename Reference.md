@@ -17,6 +17,8 @@ It is a lightweight, standalone, executable package of software that includes ev
 
 Container images become containers at runtime.
 
+
+
 <br>
 
 ## Dockerfile
@@ -38,6 +40,8 @@ Each instruction creates one layer:
 - `RUN` builds your application with make.
 - `CMD` is the default command to run when starting a container from this image.
 
+
+
 <br>
 
 ### Building the container image
@@ -52,6 +56,8 @@ docker build -t <image-name> .
 - `-t` flag tags our image as `ìmage-name`.
 - The . at the end of the docker build command tells that Docker should look for the Dockerfile in the current directory.
 
+It's important to say that an Image is made of layers. Each instruction in the Dockerfile adds a new layer. So you can see the image history by typing ```docker image history <image-name>```
+
 <br>
 
 ### Run a container given certain image container
@@ -65,6 +71,8 @@ docker run -d -p <host port>:<container port> <image-name>
 * `-d` run the container in detached mode(in the background)
 * `-p <host-port>:<container-port>` map the host port to the container port
 * `<image-name>` is the image to use
+
+It's important to mention that a container exist to provide a service. If it's not assigned any task, the container will go down immediatly after it's started.
 
 <br>
 
