@@ -1,4 +1,6 @@
-# Docker reference
+# Docker
+
+This is a brief tutorial of how to use Docker. It assumes you have already installed and seted up Docker in you machine.
 
 ## Container
 
