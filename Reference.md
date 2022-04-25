@@ -1,6 +1,6 @@
 # Docker
 
-This is a brief tutorial of how to use Docker. It assumes you have already installed and seted up Docker in you machine.
+This is a brief tutorial of how to use Docker. It assumes you have already installed and setup Docker in you machine.
 
 ## Container
 
