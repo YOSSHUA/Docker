@@ -298,4 +298,3 @@ You just have to run the commad ```docker-compose down```. The containers will s
 Getting started [tutorial](https://github.com/docker/getting-started).
 
 Docker [documentation](https://www.docker.com/resources/what-container).
-
